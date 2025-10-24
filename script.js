@@ -221,23 +221,6 @@
     bookingCancel?.addEventListener("click", () => form.reset());
   })();
 
-  // ---------------- Contact Form ----------------
-  (function () {
-    const form = $("#contactForm");
-    if (!form) return;
-    form.addEventListener("submit", () => {
-      const btn = form.querySelector('button[type="submit"]');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = "Verzenden...";
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.textContent = "Verstuur";
-        }, 2000);
-      }
-    });
-  })();
-
   // ---------------- Dark Mode ----------------
   (function () {
     const key = "rijopleiding-dark",
