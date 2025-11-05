@@ -273,19 +273,20 @@
     });
   };
 })();
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  setTimeout(() => {
-    alert("Bedankt! We hebben uw bericht ontvangen.");
-    this.reset(); // clears the form
-  }, 500);
-});
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", async function (e) {
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    setTimeout(() => {
+      alert("Bedankt! We hebben uw bericht ontvangen.");
+      this.reset(); // clears the form
+    }, 500);
+  });
+
+  contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
-    const email = "mosawermh@gmail.com";
+    const email = "a.miakhel@hotmail.com";
 
     try {
       const res = await fetch(`https://formsubmit.co/ajax/${email}`, {
@@ -302,6 +303,7 @@ document
       showToast("⚠️ Netwerkfout. Controleer je verbinding.");
     }
   });
+}
 
 function showToast(message) {
   const toast = document.createElement("div");
